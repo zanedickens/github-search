@@ -1,0 +1,144 @@
+body {
+	font-family: 'Droid Sans', sans-serif;
+	background: #F5DB16;
+	color: #333;
+	min-width: 300px;
+}
+
+
+/* TYPOGRAPHY */
+
+h1 {
+	font-family: 'Paytone One', sans-serif;
+}
+
+
+/* LOGO SECTION */
+
+
+/* BUTTONS */
+
+.btn-default,
+.btn-default:hover {
+	border: 2px solid #fff;
+	border-radius: 0;
+	background: transparent;
+	color: #fff;
+}
+
+.btn-default:hover {
+	background: #fff;
+	color: #333;
+}
+
+
+/* Modify buttons to be visible when it snows, i.e. background is #FFF */
+
+
+/* TRANSITIONS */
+
+.btn,
+.btn:hover {
+	transition: all 0.5s ease;
+}
+
+
+/* UTILITY */
+
+.margin-y-15 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.margin-b-30 {
+	margin-bottom: 30px;
+}
+
+.margin-y-30 {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.pad-10 {
+	padding: 10px;
+}
+
+.pad-b-0 {
+	padding-bottom: 0;
+}
+
+.opacity-50 {
+	opacity: 0.5;
+}
+
+
+/* SPINNER / LOADER / PROGRESS */
+
+.spinner {
+	width: 20px;
+	height: 20px;
+	margin: 5px auto;
+	background-color: #333;
+	border-radius: 100%;
+	-webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+	animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+	0% {
+		-webkit-transform: scale(0)
+	}
+	100% {
+		-webkit-transform: scale(1.0);
+		opacity: 0;
+	}
+}
+
+@keyframes sk-scaleout {
+	0% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+	100% {
+		-webkit-transform: scale(1.0);
+		transform: scale(1.0);
+		opacity: 0;
+	}
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {
+	.md-push-top {
+		margin-top: 16vh;
+	}
+}
+
+.result {
+	width:100%;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 2px 2px 2px #666;
+	display: block;
+	margin: 5px;
+	float: left;
+}
+
+.count-row li {
+	display: block;
+	float: left;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 1.25rem;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+.description {
+	height: 50px;
+	width: 100%;
+	text-overflow: ellipsis;
+}
