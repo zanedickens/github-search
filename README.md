@@ -1,6 +1,6 @@
 # Github Search
 
-Searches Github via it's API for current repos.
+Searches Github via the API for current repos.
 
 ## How to run this app:
 - This is an AngularJS 1.5 app and needs a web server to run
@@ -23,12 +23,9 @@ Searches Github via it's API for current repos.
 - This will then run the web server and display your localhost and port, for example: http://127.0.0.1:8080
 - Navigate in your browser to http://localhost:8080/chicken-little-master/#/
 
-## Once install and the app runs:
-- The app needs very little input besides allowing the use of Geolocation
+## Once installed and the app runs:
+- Enter the name of a repo
 
 ## Uses: 
 - AngularJS 1.5
 - Bootstrap 3
-- Google Maps API for a fallback to HTML5 Geolocation
-- This great font for the weather symbols based on Open Weather API icon codes: http://websygen.github.io/owfont/
-- AngularJS GeoLocation: https://github.com/arunisrael/angularjs-geolocation

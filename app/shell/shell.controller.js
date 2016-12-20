@@ -3,7 +3,7 @@
 
 	angular
 		.module('blackswan')
-		.controller('ShellController', ['$http', '$interval', '$state', '$timeout', function ($http, $interval, $state, $timeout) {
+		.controller('ShellController', ['$http', '$state', '$timeout', function ($http, $state, $timeout) {
 
 			/* jshint validthis: true */
 			var vm = this;
