@@ -34,6 +34,7 @@ a:hover,
 
 /* TYPOGRAPHY */
 
+h1,
 h3 {
 	font-family: 'Paytone One', sans-serif;
 	margin-top: 10px;
@@ -54,14 +55,6 @@ h4 {
 
 
 /* GENERAL */
-
-.count-row li {
-	display: block;
-	float: left;
-	padding: 5px;
-	font-weight: bold;
-	font-size: 1.25rem;
-}
 
 .btn {
 	border-radius: 0;
@@ -181,9 +174,6 @@ h4 {
 }
 
 
-/* Modify buttons to be visible when it snows, i.e. background is #FFF */
-
-
 /* TRANSITIONS */
 
 .btn,
@@ -213,12 +203,8 @@ a:hover {
 	margin-bottom: 30px;
 }
 
-.pad-10 {
-	padding: 10px;
-}
-
-.opacity-50 {
-	opacity: 0.5;
+.margin-t-30vh {
+	margin-top: 30vh;
 }
 
 
@@ -378,11 +364,14 @@ a:hover {
 	color: #fff;
 }
 
-.input-group-addon {
+.input-group-lg {
 	padding: 0;
+	border-radius: 0;
 }
 
-.input-group-addon {
-	padding: 0;
+.form-control {
+	padding: 10px 15px;
+	border: none;
+	margin: 10px auto;
 	border-radius: 0;
 }

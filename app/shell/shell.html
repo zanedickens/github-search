@@ -1,11 +1,12 @@
 <div class="container-fluid">
 
 	<!-- Navigation -->
-	<div ng-include="'./app/shell/shell.nav.html'"></div>
+	<div ng-if="vm.state.current.name === 'shell'" class="margin-t-30vh">
+		<h1 class="text-center white">Git Repo Search</h1>
+		<div ng-include="'./app/shell/shell.nav.html'"></div>
+	</div>
 
 	<!-- Status Row -->
-	<div ng-include="'./app/shell/shell.status.html'"></div>
-
 	<div ui-view="content"></div>
 
 </div>

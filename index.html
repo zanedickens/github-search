@@ -19,7 +19,7 @@
 	<link href="content/css/style.css" rel="stylesheet">
 </head>
 
-<body class="{{vm.bodyClass}}" ui-view>
+<body ng-class="vm.state.current.name" ui-view>
 
 	<!-- Vendor -->
 	<script src="content/js/angular.min.js"></script>
@@ -35,8 +35,7 @@
 	<script src="app/issues/issues.controller.js"></script>
 
 	<!-- Services -->
-	<script src="app/services/data.service.js"></script>
-	<script src="app/services/search.service.js"></script>
+	<script src="app/factories/data.factory.js"></script>
 
 </body>
 
