@@ -3,7 +3,7 @@
 
 	angular
 		.module('blackswan')
-		.controller('ShellController', ['$http', '$state', '$timeout', 'dataservice', function ($http, $state, $timeout, dataservice) {
+		.controller('IssuesController', ['$http', '$state', '$timeout', function ($http, $state, $timeout) {
 
 			/* jshint validthis: true */
 			var vm = this;
@@ -23,21 +23,37 @@
 			// Make this a service
 			function searchGithub(searchQuery) {
 
-				dataservice.getData(searchQuery);
+				$state.go('results');
+				vm.showProgress = true;
+				vm.showResults = false;
+				vm.showIssues = false;
+				vm.showTotal = false;
+				vm.bodyClass = 'search';
 
+				vm.query = searchQuery;
+				console.log("searchGithub is running");
 
+				$http.get("https://api.github.com/search/repositories?q=" + vm.query)
+					.then(function (response) {
 
-				//vm.showResults = false;
-				//vm.showIssues = false;
-				//vm.showTotal = false;
-				//vm.bodyClass = 'search';
+						console.log("Github API request");
 
-				//vm.query = searchQuery;
-				//console.log("searchGithub is running");
+						// API Response
+						vm.details = response.data;
+						console.log(vm.details);
 
-				//vm.showResults = true;
+						vm.showProgress = false;
+						vm.showTotal = true;
+						vm.bodyClass = 'results';
+						vm.gotError = false;
+					})
+					.catch(function (e) {
+						console.log("Github API Error", e);
+						vm.gotError = true;
+						throw e;
+					});
+				vm.showResults = true;
 			}
-
 
 			function backToResults() {
 				vm.showResults = true;
@@ -47,19 +63,15 @@
 			}
 
 			function resetForm() {
-
-				$state.go('search');
-
 				vm.searchQuery = '';
 				vm.showResults = false;
+				console.log(vm.showResults);
 				vm.showIssues = false;
 				vm.bodyClass = 'search';
 			};
 
 
 			function viewIssues(index, details) {
-
-				$state.go('issues');
 
 				vm.showIssues = false;
 				vm.showTotal = false;

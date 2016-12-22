@@ -1,11 +1,31 @@
-<div ng-show="vm.showProgress" class="spinner"></div>
-
-<h3>Total Count: {{vm.details.total_count}}</h3>
-
-<ul>
-	<li class="result col-xs-12 col-sm-3 col-lg-2" ng-repeat="item in vm.details.items">
-		<p></p>
-		<p></p>
-		<p>{{vm.details.items[i]}}</p>
-	</li>
-</ul>
+<!-- Results Page -->
+<div ng-show="vm.showResults && !vm.showProgress" class="row flex-list">
+	<div class="flex-item animated slideInUp" ng-repeat="result in vm.details.items">
+		<div class="card">
+			<div class="inner-card">
+				<div class="header">
+					<h3 class="text-uppercase bold">
+							<a href="{{vm.details.items[$index].html_url}}" target="_blank" title="Opens repo in a new tab">{{vm.details.items[$index].name}}</a>
+						</h3>
+					<h4><em>by {{vm.details.items[$index].owner.login}}</em></h4>
+				</div>
+				<p class="text-left description">{{vm.details.items[$index].description}}</p>
+				<div class="row numbers-row">
+					<div class="numbers">
+						<span class="icon fork"></span> {{vm.details.items[$index].forks_count}}
+					</div>
+					<div class="numbers">
+						<span class="icon star"></span> {{vm.details.items[$index].stargazers_count}}</div>
+					<div class="numbers">
+						<span class="icon issue"></span> {{vm.details.items[$index].open_issues_count}}</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="btn btn-50 pull-left" ng-click="vm.viewIssues($index, vm.details)">Issues</button>
+					<button class="btn btn-50 pull-right" ng-click="vm.viewChart($index, vm.details)">Charts</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

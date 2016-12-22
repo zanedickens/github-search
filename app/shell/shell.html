@@ -1,57 +1,11 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-4">
-			<form>
-				<input type="text" name="fname" ng-model="vm.searchQuery">
-				<button class="btn" ng-click="vm.searchGithub(vm.searchQuery)">Search</button>
-			</form>
-		</div>
-		<div class="col-sm-1">
-			<!-- This must be moved to the results page once we have the search service -->
-			<div ng-show="vm.showProgress" class="spinner"></div>
-		</div>
-		<div class="col-sm-7 text-center">
-			<h3>
-				<span ng-show="vm.haveResults || vm.showIssues">{{vm.details.total_count}} results found for "{{vm.query}}"</span>
-				<span ng-show="vm.showIssues">Showing first 30 issues of {{vm.issues.total_count}} for "{{vm.repoName}}"</span>
-			</h3>
-		</div>
-	</div>
 
-	<!-- Results -->
-	<div ng-hide="vm.hideResults" class="row">
-		<div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="result in vm.details.items">
-			<div class="result">
-				<h4 class="text-uppercase">
-					<a href="{{vm.details.items[$index].html_url}}">{{vm.details.items[$index].name}}</a>
-				</h4>
-				<p class="text-left description">{{vm.details.items[$index].description}}</p>
-				<div class="row">
-					<div class="col-xs-4 text-125">Forks: {{vm.details.items[$index].forks_count}}
-					</div>
-					<div class="col-xs-4 text-125">Stars: {{vm.details.items[$index].stargazers_count}}</div>
-					<div class="col-xs-4 text-125">Issues: {{vm.details.items[$index].open_issues_count}}</div>
-				</div>
+	<!-- Navigation -->
+	<div ng-include="'./app/shell/shell.nav.html'"></div>
 
-				<div class="row">
-					<div class="col-sm-12">
-						<button class="btn btn-lg btn-block" ng-click="vm.viewIssues($index, vm.details)">View Issues</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- Status Row -->
+	<div ng-include="'./app/shell/shell.status.html'"></div>
 
-	<!-- Issues -->
-	<div ng-show="vm.showIssues" class="row">
-		<div class="col-sm-12 text-center">
-			<button class="btn" ng-click="vm.backToResults()">Back</button>
-		</div>
-		<div class="col-xs-12 col-md-6" ng-repeat="issue in vm.issues.items">
-			<div class="result">
-				<p>{{$index+1}}. <a ng-click="less=!less">{{vm.issues.items[$index].title}}</a></p>
-				<p ng-hide="!less">{{vm.issues.items[$index].body}}</p>
-			</div>
-		</div>
-	</div>
+	<div ui-view="content"></div>
+
 </div>

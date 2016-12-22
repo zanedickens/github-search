@@ -1,0 +1,17 @@
+<!-- Issues Page -->
+<div ng-if="vm.showIssues" class="row">
+	<div class="col-sm-12 text-center">
+		<button class="btn" ng-click="vm.backToResults()">Back</button>
+	</div>
+	<div class="col-xs-12 col-md-6" ng-repeat="issue in vm.issues.items">
+		<div class="result card animated slideInUp">
+			<div class="inner-card">
+				<p>{{$index+1}}. <a ng-click="less=!less">{{vm.issues.items[$index].title}}</a></p>
+				<div ng-hide="!less" class="animated fadeIn">
+					<p>{{vm.issues.items[$index].body}}</p>
+					<p ng-class="{'red': vm.issues.items[$index].state == 'closed'}" class="tag">{{vm.issues.items[$index].state}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

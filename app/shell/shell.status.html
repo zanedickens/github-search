@@ -1,0 +1,17 @@
+<div class="col-sm-4 col-sm-offset-4">
+	<!-- Directive? -->
+	<div ng-show="vm.showProgress" class="sk-folding-cube">
+		<div class="sk-cube1 sk-cube"></div>
+		<div class="sk-cube2 sk-cube"></div>
+		<div class="sk-cube4 sk-cube"></div>
+		<div class="sk-cube3 sk-cube"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12 text-center">
+		<h3 class="margin-y-15 white">
+				<span ng-show="vm.showTotal && vm.showResults">{{vm.details.total_count}} results found for "{{vm.query}}"</span>
+				<span ng-show="vm.showIssues">Showing up to the first 30 issues of {{vm.issues.total_count}} for "{{vm.repoName}}" by {{vm.details.items[$index].owner.login}}</span>
+		</h3>
+	</div>
+</div>

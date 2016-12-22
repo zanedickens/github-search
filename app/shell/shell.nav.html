@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-sm-12">
+		<form name="search">
+			<div class="input-group input-group-lg">
+				<div class="input-group-addon search">
+					<button class="btn" type="submit" ng-click="vm.searchGithub(vm.searchQuery)">Search</button>
+				</div>
+				<input class="form-control" type="text" name="search" ng-model="vm.searchQuery" placeholder="Enter the name of a repo, then press enter or click Search">
+				<div class="input-group-addon reset">
+					<button class="btn " type="reset" ng-click="vm.resetForm()">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

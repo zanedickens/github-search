@@ -19,17 +19,24 @@
 	<link href="content/css/style.css" rel="stylesheet">
 </head>
 
-<body ui-view>
+<body class="{{vm.bodyClass}}" ui-view>
 
 	<!-- Vendor -->
 	<script src="content/js/angular.min.js"></script>
 	<script src="content/js/angular-ui-router.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
 
 	<!-- Bootstrapping -->
 	<script src="app/app.js"></script>
 
 	<!-- Features -->
 	<script src="app/shell/shell.controller.js"></script>
+	<script src="app/results/results.controller.js"></script>
+	<script src="app/issues/issues.controller.js"></script>
+
+	<!-- Services -->
+	<script src="app/services/data.service.js"></script>
+	<script src="app/services/search.service.js"></script>
 
 </body>
 
