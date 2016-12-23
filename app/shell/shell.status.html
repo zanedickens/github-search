@@ -1,5 +1,5 @@
 <div class="col-sm-4 col-sm-offset-4">
-	<!-- Directive? -->
+	<!-- Progress Spinner -->
 	<div ng-show="vm.showProgress" class="sk-folding-cube animated fadeIn">
 		<div class="sk-cube1 sk-cube"></div>
 		<div class="sk-cube2 sk-cube"></div>
@@ -10,9 +10,22 @@
 <div class="row">
 	<div class="col-sm-12 text-center">
 		<h3 ng-if="vm.showStatus" class="margin-y-15 white">
-				<span ng-if="vm.state.current.name == 'shell.results'">{{vm.repos.total_count}} results found for "{{vm.searchQuery}}"</span>
-				<span ng-if="vm.state.current.name == 'shell.issues'">Showing up to 30 issues of {{vm.issues.total_count}} for "{{vm.repoName}}" by {{vm.username}}</span>
+
+				<!-- Status Message for Results Only -->
+				<span ng-if="vm.state.current.name == 'shell.results'">
+					<span ng-if="vm.repos.total_count > 1">{{vm.repos.total_count}} results found for "{{vm.searchQuery}}"</span>
+					<span ng-if="vm.repos.total_count === 1">{{vm.repos.total_count}} result found for "{{vm.searchQuery}}"</span>
+					<span ng-if="vm.repos.total_count < 1">{{vm.repos.total_count}} results found for "{{vm.searchQuery}}"</span>
+				</span>
+				<!-- Status Message for Issues Only -->
+				<span ng-if="vm.state.current.name == 'shell.issues'">
+					<span ng-if="vm.issues.total_count >= 30">Showing first 30 issues of {{vm.issues.total_count}} for "{{vm.repoName}}" by {{vm.username}}</span>
+					<span ng-if="vm.issues.total_count > 0 && vm.issues.total_count < 30">Showing all {{vm.issues.total_count}} issues for "{{vm.repoName}}" by {{vm.username}}</span>
+					<span ng-if="vm.issues.total_count === 0">No known or reported issues for "{{vm.repoName}}" by {{vm.username}}</span>
+				</span>
 		</h3>
+		<!-- Error with API Message -->
 		<h3 ng-if="vm.status !== ''">{{vm.status}}</h3>
 	</div>
 </div>
+<!-- TODO Move logic to controller -->
