@@ -11,6 +11,9 @@
 			vm.state = $state;
 
 			vm.issues = {};
+			vm.repoName = dataFactory.repoName;
+			vm.username = dataFactory.username;
+
 			vm.backToResults = backToResults;
 
 			// Display from the home page search

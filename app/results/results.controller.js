@@ -15,13 +15,10 @@
 			vm.repos = {};
 			vm.showResults = true;
 			vm.showProgress = false;
-
 			vm.searchGithub = searchGithub;
 			vm.displayRepos = displayRepos;
-
 			vm.viewIssues = viewIssues;
 			vm.viewChart = viewChart; // placeholder
-
 			vm.resetForm = resetForm;
 
 
@@ -30,7 +27,6 @@
 				if (vm.searchQuery != undefined && vm.searchQuery != '') {
 
 					vm.showProgress = true; // spinner on
-
 					// Set it for use in Issues
 					dataFactory.query = searchQuery;
 					// Set it so that status updates
@@ -56,6 +52,8 @@
 			// Display from the home page search
 			function displayRepos() {
 
+				vm.showProgress = true; // spinner on
+
 				dataFactory.getRepos(dataFactory.query)
 
 				.then(function (response) {
@@ -66,6 +64,8 @@
 				});
 
 				vm.showStatus = true;
+				vm.showProgress = false; // spinner off
+
 			}
 
 			// Don't run without an actual query
@@ -74,8 +74,6 @@
 			}
 
 			function viewIssues(index, repos) {
-
-				console.log('viewIssues called');
 
 				vm.index = index;
 				vm.repos = repos;
@@ -88,8 +86,6 @@
 			}
 
 			function viewChart(index, repos) { // placeholder
-
-				console.log('viewIssues called');
 
 				vm.index = index;
 				vm.repos = repos;
