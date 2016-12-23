@@ -191,6 +191,11 @@ h4 {
 	margin: 10px auto;
 	border-radius: 0;
 	height: 50px;
+	border-bottom: 2px solid #fff;
+}
+
+.form-control:focus {
+	border-bottom: 2px solid #f1b12c;
 }
 
 
