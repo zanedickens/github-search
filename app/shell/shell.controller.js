@@ -3,14 +3,11 @@
 
 	angular
 		.module('blackswan')
-		.controller('ShellController', ['$http', '$state', '$timeout', 'dataFactory', function ($http, $state, $timeout, dataFactory) {
+		.controller('ShellController', ['$state', 'dataFactory', function ($state, dataFactory) {
 
 			/* jshint validthis: true */
 			var vm = this;
 			vm.state = $state;
-
-			// Initial Status of the app
-			vm.bodyClass = '';
 
 			// functions
 			vm.searchGithub = searchGithub;

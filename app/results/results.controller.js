@@ -41,8 +41,9 @@
 					.then(function (response) {
 						console.log('dataFactory triggered');
 						vm.repos = response.data;
-						vm.showProgress = false; // spinner on
-						vm.showStatus = true; // show status
+						vm.showProgress = false; // spinner off
+						vm.showStatus = true; // show status of search X results for "y"
+						vm.showResults = true; // without this resetting form hides future results
 
 					}, function (error) {
 						vm.status = 'Unable to load repo data: ' + error.message;
@@ -67,7 +68,7 @@
 				vm.showStatus = true;
 			}
 
-			// Don't run without queries
+			// Don't run without an actual query
 			if (vm.searchQuery != undefined && vm.searchQuery != '') {
 				displayRepos();
 			}
@@ -86,7 +87,7 @@
 
 			}
 
-			function viewChart(index, repos) {
+			function viewChart(index, repos) { // placeholder
 
 				console.log('viewIssues called');
 
@@ -105,6 +106,7 @@
 			function resetForm() {
 				vm.searchQuery = '';
 				vm.showResults = false;
+				vm.showStatus = false;
 			};
 
 		}]);

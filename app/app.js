@@ -1,6 +1,8 @@
 (function () {
 	'use strict';
 
+	// TODO: Configuration should be in a separate file
+
 	var configuration = function ($stateProvider, $urlRouterProvider) {
 
 		$stateProvider.state('shell', {
@@ -9,6 +11,7 @@
 			controller: 'ShellController as vm'
 		})
 
+		// Ideally each module should have its own routes file to maintain indepedence
 		.state('shell.results', {
 			url: '^/results',
 			views: {

@@ -5,7 +5,7 @@ Searches Github via the API for current repos.
 ## How to run this app:
 - This is an AngularJS 1.5 app and needs a web server to run
 - On your local machine this needs to be IIS or Apache or Node HTTP-Server
-- This app is live here: http://zanedickens.com/chicken-little/#/ 
+- This app is live here: http://zanedickens.com/github-search/#/ 
 - This works in Firefox 50, Webkit (Chrome & Safari) blocks geolocation when not using HTTPS. 
 
 ### Window 8 or 10 - ISS

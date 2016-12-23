@@ -9,7 +9,10 @@
 				<p>{{$index+1}}. <a ng-click="less=!less">{{vm.issues.items[$index].title}}</a></p>
 				<div ng-hide="!less" class="animated fadeIn">
 					<!-- TODO - Convert Markdown body into HTML -->
-					<p>{{vm.issues.items[$index].body}}</p>
+					<p ng-if="vm.issues.items[$index].body !== ''">{{vm.issues.items[$index].body}}</p>
+					<p ng-if="vm.issues.items[$index].body == ''">No issue text
+						<available class=""></available>
+					</p>
 					<p ng-class="{'red': vm.issues.items[$index].state == 'closed'}" class="tag">{{vm.issues.items[$index].state}}</p>
 				</div>
 			</div>
