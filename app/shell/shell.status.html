@@ -9,9 +9,10 @@
 </div>
 <div class="row">
 	<div class="col-sm-12 text-center">
-		<h3 class="margin-y-15 white">
-				<span ng-show="vm.showTotal && vm.showResults">{{vm.details.total_count}} results found for "{{vm.query}}"</span>
-				<span ng-show="vm.showIssues">Showing up to the first 30 issues of {{vm.issues.total_count}} for "{{vm.repoName}}" by {{vm.details.items[$index].owner.login}}</span>
+		<h3 ng-if="vm.showStatus" class="margin-y-15 white">
+				<span ng-if="vm.state.current.name == 'shell.results'">{{vm.repos.total_count}} results found for "{{vm.searchQuery}}"</span>
+				<span ng-if="vm.state.current.name == 'shell.issues'">Showing up to the first 30 issues of {{vm.issues.total_count}} for "{{vm.repoName}}" by {{vm.repos.items[$index].owner.login}}</span>
 		</h3>
+		<h3 ng-if="vm.status !== ''">{{vm.status}}</h3>
 	</div>
 </div>

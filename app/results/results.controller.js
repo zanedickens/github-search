@@ -3,19 +3,25 @@
 
 	angular
 		.module('blackswan')
-		.controller('ResultsController', ['$state', 'dataFactory', function ($state, dataFactory) {
+		.controller('ResultsController', ['$http', '$state', 'dataFactory', function ($http, $state, dataFactory) {
 
 			/* jshint validthis: true */
 			var vm = this;
 
+			vm.state = $state;
+
 			vm.searchQuery = dataFactory.query
-			vm.status = '';
+			vm.showStatus = dataFactory.status;
 			vm.repos = {};
 			vm.showResults = true;
 			vm.showProgress = false;
 
 			vm.searchGithub = searchGithub;
 			vm.displayRepos = displayRepos;
+
+			vm.viewIssues = viewIssues;
+			vm.viewChart = viewChart; // placeholder
+
 			vm.resetForm = resetForm;
 
 
@@ -23,19 +29,26 @@
 
 				if (vm.searchQuery != undefined && vm.searchQuery != '') {
 
-					vm.showProgress = true;
+					vm.showProgress = true; // spinner on
+
+					// Set it for use in Issues
 					dataFactory.query = searchQuery;
+					// Set it so that status updates
+					vm.searchQuery = dataFactory.query
 
 					dataFactory.getRepos(searchQuery)
 
 					.then(function (response) {
 						console.log('dataFactory triggered');
 						vm.repos = response.data;
-						vm.showProgress = false;
+						vm.showProgress = false; // spinner on
+						vm.showStatus = true; // show status
 
 					}, function (error) {
 						vm.status = 'Unable to load repo data: ' + error.message;
 					});
+
+
 				}
 			}
 
@@ -50,47 +63,43 @@
 				}, function (error) {
 					vm.status = 'Unable to load repo data: ' + error.message;
 				});
+
+				vm.showStatus = true;
 			}
 
+			// Don't run without queries
 			if (vm.searchQuery != undefined && vm.searchQuery != '') {
 				displayRepos();
 			}
 
-			function viewIssues(index, details) {
+			function viewIssues(index, repos) {
+
+				console.log('viewIssues called');
+
+				vm.index = index;
+				vm.repos = repos;
+
+				dataFactory.username = vm.repos.items[index].owner.login;
+				dataFactory.repoName = vm.repos.items[index].name;
 
 				$state.go('shell.issues');
 
-				vm.showIssues = false;
-				vm.showTotal = false;
+			}
 
-				vm.showResults = false;
-				vm.showProgress = true;
+			function viewChart(index, repos) {
+
+				console.log('viewIssues called');
 
 				vm.index = index;
-				vm.details = details;
+				vm.repos = repos;
 
-				vm.username = vm.details.items[index].owner.login;
-				vm.repoName = vm.details.items[index].name;
+				dataFactory.username = vm.repos.items[index].owner.login;
+				dataFactory.repoName = vm.repos.items[index].name;
 
-				$http.get("https://api.github.com/search/issues?q=repo:" + vm.username + "/" + vm.repoName)
-					.then(function (response) {
+				// $state.go('shell.chart'); TODO - would be nicer as a modal to check the pulse
 
-						console.log("Github API issues request");
+				// run the viewChart functionality
 
-						// API Response
-						vm.issues = response.data;
-						console.log(vm.issues);
-
-						vm.showProgress = false;
-						vm.gotError = false;
-					})
-					.catch(function (e) {
-						console.log("Github API Error", e);
-						vm.gotError = true;
-						throw e;
-					});
-
-				vm.showIssues = true;
 			}
 
 			function resetForm() {

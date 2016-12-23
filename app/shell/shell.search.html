@@ -1,7 +1,9 @@
+<!-- Show only on Results State -->
 <div ng-if="vm.state.current.name === 'shell'" class="row">
 	<div class="col-xs-12 col-sm-8 col-sm-offset-2">
 		<form name="search">
-			<input class="form-control" type="text" name="search" ng-model="vm.searchQuery" placeholder="Enter the name of a repo, then press enter or click Search">
+			<input class="form-control" type="text" name="search" ng-model="vm.searchQuery" placeholder="Enter the name of a repo, then press enter or click Search" required>
+			<!-- TODO - Add ngMessages for required filed -->
 		</form>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-sm-offset-4">
@@ -9,10 +11,12 @@
 	</div>
 </div>
 
+<!-- Show only on Results State -->
 <div ng-if="vm.state.current.name !== 'shell'" class="row">
 	<div class="col-xs-12 col-sm-8">
 		<form name="search">
 			<input class="form-control" type="text" name="search" ng-model="vm.searchQuery" placeholder="Enter the name of a repo, then press enter or click Search" required>
+			<!-- TODO - Add ngMessages for required filed -->
 		</form>
 	</div>
 	<div class="col-xs-6 col-sm-2">

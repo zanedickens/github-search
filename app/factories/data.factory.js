@@ -5,60 +5,32 @@
 		.module('blackswan')
 		.factory('dataFactory', ['$http', function ($http) {
 
+				// Search Query from Search State
 				var query = '';
 
-				var dataFactory = [];
+				// Repo Data from Results State
+				var index = [],
+					repos = {},
+					username = '',
+					repoName = '',
+					issues = {},
+					dataFactory = [],
+					status = false;
 
+				// Results State
 				dataFactory.getRepos = getRepos;
+
+				// Issues State
+				dataFactory.getIssues = getIssues;
 
 				function getRepos(query) {
 					return $http.get("https://api.github.com/search/repositories?q=" + query)
 				};
 
 
-				/*var service = {};
-
-				service.details = details;
-				service.benefits = benefits;
-				service.questions = questions;
-				service.banks = banks;
-				service.history = history;
-				service.exit = exit;
-				service.help = help;
-				service.quote = quote;
-
-				return service;
-
-				function benefits() {
-					return $resource('/workplaceLivingServicesREST/member/benefits', null, {
-						'get': {
-							method: 'POST',
-							headers: {
-								'Authorization': TokenHandler.get()
-							}
-						}
-					});
-				};
-
-				/* data.repos = function getGithubData(query) {
-
-					$http.get("https://api.github.com/search/repositories?q=" + query)
-						.then(function (response) {
-
-							console.log("Github API request");
-
-							// API Response
-							var details = response.data;
-
-							return details;
-
-						})
-						.catch(function (e) {
-							console.log("Github API Error", e);
-							throw e;
-						});
-
-				}*/
+				function getIssues(username, repoName) {
+					return $http.get("https://api.github.com/search/issues?q=repo:" + username + "/" + repoName)
+				}
 
 				return dataFactory;
 

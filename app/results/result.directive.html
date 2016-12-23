@@ -1,0 +1,27 @@
+<div class="card">
+	<div class="inner-card">
+		<div class="header">
+			<h3 class="text-uppercase bold">
+							<img class="avatar" src="{{vm.repos.items[$index].owner.avatar_url}}" alt="">
+							<a href="{{vm.repos.items[$index].html_url}}" target="_blank" title="Opens repo in a new tab">{{vm.repos.items[$index].name}}</a>
+						</h3>
+			<h4><em>by {{vm.repos.items[$index].owner.login}}</em></h4>
+		</div>
+		<p class="text-left gry">{{vm.repos.items[$index].description}}</p>
+		<div class="row numbers-row">
+			<div class="numbers">
+				<span class="icon fork"></span> {{vm.repos.items[$index].forks_count}}
+			</div>
+			<div class="numbers">
+				<span class="icon star"></span> {{vm.repos.items[$index].stargazers_count}}</div>
+			<div class="numbers">
+				<span class="icon issue"></span> {{vm.repos.items[$index].open_issues_count}}</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-50 pull-left" ng-click="vm.viewIssues($index, vm.repos)">Issues</button>
+			<button class="btn btn-50 pull-right" ng-click="vm.viewChart($index, vm.repos)" disabled>Charts</button>
+		</div>
+	</div>
+</div>

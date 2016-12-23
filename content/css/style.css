@@ -8,16 +8,19 @@ body {
 	min-width: 300px;
 }
 
+
+/* Body Colour Changes on State Change - uses vm.state.current.name */
+
 body,
-body.search {
+body.shell {
 	background-color: #4286fc;
 }
 
-body.results {
+body[class*="results"] {
 	background-color: #32a350;
 }
 
-body.issues {
+body[class*="issues"] {
 	background-color: #f1b12c;
 }
 
@@ -38,6 +41,11 @@ h1,
 h3 {
 	font-family: 'Paytone One', sans-serif;
 	margin-top: 10px;
+}
+
+h1 {
+	font-size: 4rem;
+	line-height: 0.75;
 }
 
 h4 {
@@ -69,10 +77,6 @@ h4 {
 
 .btn-50 {
 	width: 50%;
-}
-
-.description {
-	color: #666;
 }
 
 .flex-list {
@@ -174,6 +178,10 @@ h4 {
 }
 
 
+/* FROMS */
+
+.height: 50px;
+
 /* TRANSITIONS */
 
 .btn,
@@ -188,6 +196,10 @@ a:hover {
 
 
 /* UTILITY */
+
+.gry {
+	color: #666;
+}
 
 .margin-y-15 {
 	margin-top: 15px;
@@ -374,4 +386,12 @@ a:hover {
 	border: none;
 	margin: 10px auto;
 	border-radius: 0;
+}
+
+.avatar {
+	width: 75px;
+	height: 75px;
+	border-radius: 50px;
+	float: left;
+	margin-bottom: 20px;
 }

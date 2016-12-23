@@ -20,7 +20,7 @@
 		})
 
 		.state('shell.issues', {
-			url: '/issues',
+			url: '^/issues',
 			parent: "shell",
 			views: {
 				'content': {
