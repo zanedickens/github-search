@@ -64,21 +64,6 @@ h4 {
 
 /* GENERAL */
 
-.btn {
-	border-radius: 0;
-	background: #fff;
-	color: #337ab7;
-}
-
-.btn:hover {
-	background: #337ab7;
-	color: #fff;
-}
-
-.btn-50 {
-	width: 50%;
-}
-
 .flex-list {
 	display: flex;
 	flex-flow: row wrap;
@@ -95,6 +80,9 @@ h4 {
 	margin: 0 auto;
 }
 
+
+/* Card */
+
 .card {
 	border-radius: 2px;
 	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
@@ -110,6 +98,17 @@ h4 {
 	overflow: hidden;
 	text-align: center;
 }
+
+.avatar {
+	width: 75px;
+	height: 75px;
+	border-radius: 50px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+
+/* Icons and Numbers */
 
 .numbers-row {
 	margin-top: -10px;
@@ -147,6 +146,9 @@ h4 {
 	background-image: url(../img/icon-star.png);
 }
 
+
+/* Issues */
+
 .tag {
 	border-radius: 10px;
 	padding: 5px 10px;
@@ -164,23 +166,32 @@ h4 {
 
 /* BUTTONS */
 
-.btn-default,
-.btn-default:hover {
-	border: 2px solid #fff;
+.btn {
 	border-radius: 0;
-	background: transparent;
+	background: #fff;
+	color: #337ab7;
+}
+
+.btn:hover {
+	background: #337ab7;
 	color: #fff;
 }
 
-.btn-default:hover {
-	background: #fff;
-	color: #333;
+.btn-50 {
+	width: 50%;
 }
 
 
 /* FROMS */
 
-.height: 50px;
+.form-control {
+	padding: 10px 15px;
+	border: none;
+	margin: 10px auto;
+	border-radius: 0;
+	height: 50px;
+}
+
 
 /* TRANSITIONS */
 
@@ -196,6 +207,10 @@ a:hover {
 
 
 /* UTILITY */
+
+.white {
+	color: #fff;
+}
 
 .gry {
 	color: #666;
@@ -328,38 +343,12 @@ a:hover {
 	}
 }
 
+
+/* MEDIA QUERIES */
+
 @media only screen and (min-width: 480px) {
 	.flex-item {
 		max-width: 49%;
-	}
-}
-
-@media only screen and (max-width: 480px) {
-	.input-group {
-		display: block;
-		font-size: 0.75rem;
-		;
-	}
-	.input-group-addon.search,
-	.input-group-addon.reset {
-		position: fixed;
-		bottom: 25px;
-		right: 0;
-		width: 50%;
-		z-index: 100;
-		background: #fff;
-		border: 0px;
-		border-radius: 0;
-		padding: 0;
-		height: 50px;
-	}
-	.input-group-addon.search {
-		left: 0;
-	}
-	.input-group-addon.reset > .btn,
-	.input-group-addon.search > .btn {
-		height: 100%;
-		width: 100%;
 	}
 }
 
@@ -370,28 +359,4 @@ a:hover {
 	.flex-item {
 		max-width: 33%;
 	}
-}
-
-.white {
-	color: #fff;
-}
-
-.input-group-lg {
-	padding: 0;
-	border-radius: 0;
-}
-
-.form-control {
-	padding: 10px 15px;
-	border: none;
-	margin: 10px auto;
-	border-radius: 0;
-}
-
-.avatar {
-	width: 75px;
-	height: 75px;
-	border-radius: 50px;
-	float: left;
-	margin-bottom: 20px;
 }
