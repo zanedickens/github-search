@@ -372,6 +372,12 @@ a:hover {
 	}
 }
 
+@media only screen and (max-height: 481px) {
+	.margin-t-30vh {
+		margin-top: 15vh;
+	}
+}
+
 
 /* Small Devices, Tablets */
 
